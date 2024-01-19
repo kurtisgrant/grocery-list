@@ -1,5 +1,6 @@
 import { unstable_noStore as noStore } from "next/cache";
 import Link from "next/link";
+import { Button } from "~/components/ui/button";
 
 import { CreatePost } from "~/app/_components/create-post";
 import { getServerAuthSession } from "~/server/auth";
@@ -11,16 +12,19 @@ export default async function Home() {
   const session = await getServerAuthSession();
 
   return (
-    <main className="flex">
+    <main className="">
+      <h1 className="pb-5 text-5xl font-bold">Grocery List</h1>
       <p className="text-2xl">
         {session && <span>Logged in as {session.user?.name}</span>}
       </p>
-      <Link
-        href={session ? "/api/auth/signout" : "/api/auth/signin"}
-        className="rounded-full bg-blue-500 px-10 py-3 font-semibold no-underline transition"
-      >
-        {session ? "Sign out" : "Sign in"}
-      </Link>
+      <Button asChild>
+        <Link
+          href={session ? "/api/auth/signout" : "/api/auth/signin"}
+          className="rounded-full bg-blue-500 px-10 py-3 font-semibold no-underline transition"
+        >
+          {session ? "Sign out" : "Sign in"}
+        </Link>
+      </Button>
     </main>
   );
 }
