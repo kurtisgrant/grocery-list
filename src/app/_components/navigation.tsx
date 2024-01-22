@@ -33,6 +33,7 @@ export default function Navigation({ session }: NavigationProps) {
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
+        <NavigationMenuItem className="flex-grow"></NavigationMenuItem>
         {session && (
           <NavigationMenuItem>
             <Badge className="hover:bg-primary">
