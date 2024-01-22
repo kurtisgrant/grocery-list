@@ -17,8 +17,8 @@ type NavigationProps = {
 
 export default function Navigation({ session }: NavigationProps) {
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
+    <NavigationMenu className="w-full">
+      <NavigationMenuList className="w-full">
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -35,7 +35,9 @@ export default function Navigation({ session }: NavigationProps) {
         </NavigationMenuItem>
         {session && (
           <NavigationMenuItem>
-            <Badge>Logged in as {session.user?.name}</Badge>
+            <Badge className="hover:bg-primary">
+              Logged in as {session.user?.name}
+            </Badge>
           </NavigationMenuItem>
         )}
         <NavigationMenuItem>
