@@ -5,6 +5,7 @@ import { api } from "~/trpc/server";
 import Navigation from "./_components/navigation";
 import { Card, CardContent } from "~/components/ui/card";
 import type { Session } from "next-auth";
+import { CreateItem } from "./_components/create-item";
 
 export default async function Home() {
   noStore();
@@ -26,6 +27,7 @@ export default async function Home() {
             </CardContent>
           </Card>
         )}
+        <CreateItem />
       </div>
     </main>
   );

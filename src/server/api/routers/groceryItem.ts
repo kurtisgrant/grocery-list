@@ -23,7 +23,7 @@ export const groceryItemRouter = createTRPCRouter({
 
   getAll: protectedProcedure.query(({ ctx }) => {
     return ctx.db.groceryItem.findMany({
-      // where: { createdBy: { id: ctx.session.user.id } },
+      where: { createdBy: { id: ctx.session.user.id } },
     });
   }),
 
